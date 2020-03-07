@@ -30,10 +30,10 @@ public class UserController {
         return userService.findUserById(id);
     }
 
-    @GetMapping("/{name}")
-    public List<User> getUserByName(@PathVariable String name){
-        return userService.findUserByName(name);
-    }
+//    @GetMapping("/{name}")
+//    public List<User> getUserByName(@PathVariable String name){
+//        return userService.findUserByName(name);
+//    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
