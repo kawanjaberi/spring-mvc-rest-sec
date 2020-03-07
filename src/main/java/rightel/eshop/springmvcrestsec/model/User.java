@@ -1,11 +1,18 @@
 package rightel.eshop.springmvcrestsec.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.io.Serializable;
 
 @Data
+@NoArgsConstructor
+@RequiredArgsConstructor
+@Getter
+@Setter
+@ToString(exclude="userPassword")
+@EqualsAndHashCode
 @Entity
 @Table(name = "user")
 public class User  implements Serializable {
@@ -13,10 +20,20 @@ public class User  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
+
+    @NonNull
+    @Column(unique = true)
     private String userName;
+
+    @NonNull
+    @Column(unique = true)
+    @Email
     private String userEmail;
+
+    @NonNull
     private String userPassword;
 
+    /*
     @Override
     public String toString() {
         return "User{" +
@@ -40,4 +57,6 @@ public class User  implements Serializable {
     public int hashCode() {
         return idUser != null ? idUser.hashCode() : 0;
     }
+
+     */
 }

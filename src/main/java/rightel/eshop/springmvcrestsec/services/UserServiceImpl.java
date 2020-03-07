@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
@@ -18,13 +17,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findUserById(Long id) {
-        return userRepository.findById(id);
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
     }
 
     @Override
-    public List<User> findAllUsers() {
-        return userRepository.findAll();
+    public Optional<User> findUserById(Long id) {
+        return userRepository.findById(id);
     }
 
     @Override
@@ -33,7 +32,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findUserByName(String name) {
-       return userRepository.findByUserName(name);
+    public User updateUser(User user, Long id) {
+
+        Optional<User> foundUser = userRepository.findById(id);
+        if (foundUser.isPresent()){
+            foundUser.;
+        }
     }
+
+//    @Override
+//    public List<User> findUserByName(String name) {
+//       return userRepository.findByUserName(name);
+//    }
 }
