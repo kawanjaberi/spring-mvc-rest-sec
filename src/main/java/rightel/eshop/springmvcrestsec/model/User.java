@@ -1,10 +1,13 @@
 package rightel.eshop.springmvcrestsec.model;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -33,6 +36,11 @@ public class User  implements Serializable {
     @NonNull
     private String userPassword;
 
+    @CreationTimestamp
+    private Date createdAt;
+
+    @UpdateTimestamp
+    private Date updateAt;
     /*
     @Override
     public String toString() {
