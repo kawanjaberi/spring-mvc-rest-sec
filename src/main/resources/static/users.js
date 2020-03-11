@@ -1,12 +1,12 @@
 var users = [];
 
-function findUser (userId) {
-    return users[findUserKey(userId)];
+function findUser (idUser) {
+    return users[findUserKey(idUser)];
 }
 
-function findUserKey (userId) {
+function findUserKey (idUser) {
     for (var key = 0; key < users.length; key++) {
-        if (users[key].id == userId) {
+        if (users[key].id == idUser) {
             return key;
         }
     }
@@ -47,7 +47,7 @@ var userService = {
             .then(response => fn(response))
             .catch(error => console.log(error))
     }
-}
+};
 
 var List = Vue.extend({
     template: '#user-list',
@@ -70,7 +70,7 @@ var List = Vue.extend({
 var User = Vue.extend({
     template: '#user',
     data: function () {
-        return {user: findUser(this.$route.params.user_id)};
+        return {user: (this.$route.params.user_id)};
     }
 });
 
@@ -124,4 +124,4 @@ var router = new VueRouter({
 
 new Vue({
     router
-}).$mount('#app')
+}).$mount('#app');

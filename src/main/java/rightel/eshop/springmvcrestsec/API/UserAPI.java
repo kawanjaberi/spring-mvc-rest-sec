@@ -42,24 +42,22 @@ public class UserAPI {
         return ResponseEntity.ok(foundUser.get());
     }
 
-    @PutMapping("/{id")
-    public ResponseEntity<User> update(@PathVariable Long id, @Valid @RequestBody User user){
+    @PutMapping("/{id}")
+    public ResponseEntity<User> update(@Valid @RequestBody User userToUpdate, @PathVariable Long id){
         if (!userService.findUserById(id).isPresent()){
             log.error("Id" + id + " is not existed");
             ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok(userService.saveUser(user));
+        return ResponseEntity.ok(userService.uodateUser(userToUpdate, id));
     }
 
-    @DeleteMapping("/{id")
+    @DeleteMapping("/{id}")
     public ResponseEntity deleteUser(@PathVariable Long id){
         if (!userService.findUserById(id).isPresent()){
             log.error("Id" + id + " is not existed");
             ResponseEntity.badRequest().build();
         }
-
         userService.deleteUserById(id);
-
         return ResponseEntity.ok().build();
     }
 }

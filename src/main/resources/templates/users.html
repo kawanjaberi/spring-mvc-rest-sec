@@ -65,17 +65,17 @@
                 <!-- tr v-for="user in users | filterBy searchKey in 'name'" -->
                 <td>
                     <a>
-                        <router-link :to="{userName: 'user', params: {user_id: user.id}}">{{ user.userName }}</router-link>
+                        <router-link :to="{userName: 'user', params: { user_id: user.idUser }}">{{ user.userName }}</router-link>
                     </a>
                 </td>
                 <td>{{ user.userEmail }}</td>
 
                 <td>
                     <a class="btn btn-warning btn-xs">
-                        <router-link :to="{name: 'user-edit', params: {user_id: user.id}}">Edit</router-link>
+                        <router-link :to="{name: 'user-edit', params: { user_id: user.idUser }}">Edit</router-link>
                     </a>
                     <a class="btn btn-danger btn-xs">
-                        <router-link :to="{name: 'user-delete', params: {user_id: user.id}}">Delete</router-link>
+                        <router-link :to="{name: 'user-delete', params: { user_id: user.idUser }}">Delete</router-link>
                     </a>
                 </td>
             </tr>
@@ -115,7 +115,7 @@
             </div>
             <div class="form-group">
                 <label for="edit-userEmail">Email</label>
-                <textarea class="form-control" id="edit-userEmail" rows="3" v-model="user.userEmail"></textarea>
+                <input type="email" class="form-control" id="edit-userEmail"  v-model="user.userEmail" required/>
             </div>
 
             <button type="submit" class="btn btn-primary">Save</button>
@@ -143,8 +143,6 @@
 <script src="https://unpkg.com/vue-router@3.0.2/dist/vue-router.js"></script>
 <script src="https://unpkg.com/axios@0.18.0/dist/axios.min.js"></script>
 <script src="/users.js"></script>
-
-
 
 </body>
 </html>

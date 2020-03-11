@@ -1,4 +1,4 @@
-package rightel.eshop.springmvcrestsec.Config;
+package rightel.eshop.springmvcrestsec.config;
 
 
 import org.springframework.context.annotation.Bean;
