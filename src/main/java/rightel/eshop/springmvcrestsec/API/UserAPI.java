@@ -43,12 +43,12 @@ public class UserAPI {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> update(@Valid @RequestBody User userToUpdate, @PathVariable Long id){
+    public ResponseEntity<User> update(@PathVariable Long id, @Valid @RequestBody User userToUpdate){
         if (!userService.findUserById(id).isPresent()){
             log.error("Id" + id + " is not existed");
             ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok(userService.uodateUser(userToUpdate, id));
+        return ResponseEntity.ok(userService.uodateUser(id, userToUpdate));
     }
 
     @DeleteMapping("/{id}")

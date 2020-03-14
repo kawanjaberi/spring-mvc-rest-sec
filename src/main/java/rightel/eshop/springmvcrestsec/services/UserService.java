@@ -15,7 +15,7 @@ public interface UserService {
 
     void deleteUserById(Long id);
 
-    User uodateUser(User userToUpdate, Long id);
+    User uodateUser(Long id, User userToUpdate);
 
     //List<User> findUserByName(String name);
 }

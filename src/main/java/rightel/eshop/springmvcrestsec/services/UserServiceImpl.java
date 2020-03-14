@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User uodateUser(User userToUpdate, Long id) {
+    public User uodateUser(Long id, User userToUpdate) {
 
         User foundUser = userRepository.findById(id).get();
         try{
