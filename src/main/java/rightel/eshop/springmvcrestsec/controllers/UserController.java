@@ -50,6 +50,12 @@ public class UserController {
         return "edit";
     }
 
+    @GetMapping(path = "/users/delete/{id}")
+    public String deleteUser(@PathVariable(name = "id") Long id){
+        userService.deleteUserById(id);
+        return "redirect:/users";
+    }
+
 //    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
 
 

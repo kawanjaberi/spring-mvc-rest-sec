@@ -15,6 +15,7 @@
                 <th>Email</th>
                 <th>Password</th>
                 <th>Edit</th>
+                <th>Delete</th>
             </tr>
             <tr th:each="user : ${users}">
                 <td th:text="${user.idUser}">Id</td>
@@ -22,6 +23,7 @@
                 <td th:text="${user.userEmail}">Email</td>
                 <td th:text="${user.userPassword}">Password</td>
                 <td><a th:href="${'/users/edit/' + user.idUser}" class="btn btn-default">Edit</a> </td>
+                <td><a th:href="${'/users/delete/' + user.idUser}" class="btn btn-danger">Delete</a></td>
             </tr>
         </table>
     </div>
